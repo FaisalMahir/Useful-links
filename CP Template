@@ -4,16 +4,18 @@ using ll = long long;
 using ld = long double;
 using vll = vector<ll>;
 
-#define fill(a) for(auto& x : a) cin >> x
-#define zero(a) for(auto& x : a) x = 0
 #define pb push_back
 #define pf push_front
 #define xrep(i,a,b) for(ll i = a; i < b; i++)
 #define rep(i,a,b) for(ll i = a; i <= b; i++)
- 
+#define fill(a) for(auto& x : a) cin >> x
+#define zero(a) for(auto& x : a) x = 0
+#define fillv(v,n) xrep(i,0,n){ll xv; cin >> xv; v.pb(xv);}
+#define zerov(v,n) xrep(i,0,n) v.pb(0)
+
 
 void solve(){
-
+    
 }
 
 
@@ -24,11 +26,7 @@ int main(){
     // ll t; 
     // cin >> t;
     // while(t--){
-    
         solve();
-
-
-
     // }
 
     return 0;
