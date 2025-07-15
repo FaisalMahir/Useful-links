@@ -3,6 +3,8 @@ using namespace std;
 using ll = long long;
 using ld = long double;
 using vll = vector<ll>;
+using vpl = vector<pair<ll,ll>>;
+using vtl = vector<tuple<ll,ll,ll>>;
 
 #define pb push_back
 #define pf push_front
@@ -12,6 +14,8 @@ using vll = vector<ll>;
 #define zero(a) for(auto& x : a) x = 0
 #define fillv(v,n) xrep(i,0,n){ll xv; cin >> xv; v.pb(xv);}
 #define zerov(v,n) xrep(i,0,n) v.pb(0)
+#define fills(s,n) xrep(i,0,n){ll xv; cin >> xv; s.insert(xv);}
+#define all(x) x.begin(),x.end()
 
 
 void solve(){
