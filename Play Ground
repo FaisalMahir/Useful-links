@@ -17,23 +17,38 @@ using vtl = vector<tuple<ll,ll,ll>>;
 
 
 void solve(){
-    ll n,x,y,maxy,count,ind;
+    ll n,x,y,maxy,count,ind,maxs;
     cin >> n;
     vpl p;
     maxy = 0;
     xrep(i,0,n){
         cin >> x >> y;
-        p.pb({a,b});
+        p.pb({x,y});
         maxy = max(maxy,y);
     }
     sort(all(p));
     multiset<ll> msy;
     ind = 0;
+    maxs = 0;
     xrep(i,0,maxy){
         if(i==p[ind].first){
-            msy.insert(p[ind].second);
-            ind++;
+            while(i==p[ind].first){
+                msy.insert(p[ind].second);
+                ind++;
+            }
         }
+        maxs = max(maxs, (ll)msy.size());
+        if(msy.count(i)>0){
+            msy.erase(i);
+        }
+    }
+    cout << maxs;
+    priority_queue <ll, vll, greater<ll>> pq;
+    rep(i,1,maxs){
+        pq.push(i);
+    }
+    xrep(i,0,n){
+        
     }
     
 }
