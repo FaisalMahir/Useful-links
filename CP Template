@@ -1,10 +1,14 @@
 #include <bits/stdc++.h>
+#include <ext/pb_ds/assoc_container.hpp>
+using namespace __gnu_pbds;
 using namespace std;
 using ll = long long;
 using ld = long double;
 using vll = vector<ll>;
 using vpl = vector<pair<ll,ll>>;
 using vtl = vector<tuple<ll,ll,ll>>;
+using ordered_set = tree<int,null_type,less<int>,rb_tree_tag,
+tree_order_statistics_node_update> ; 
 
 #define pb push_back
 #define pf push_front
@@ -17,6 +21,8 @@ using vtl = vector<tuple<ll,ll,ll>>;
 
 
 void solve(){
+
+    
     
 }
 
@@ -25,11 +31,11 @@ int main(){
     ios::sync_with_stdio(0);
     cin.tie(0);
 
-    // ll t; 
-    // cin >> t;
-    // while(t--){
-        solve();
-    // }
+    ll t; 
+    cin >> t;
+    while(t--){
+       solve();
+    }
 
     return 0;
 }
