@@ -9,8 +9,9 @@ using vpl = vector<pair<ll,ll>>;
 using vtl = vector<tuple<ll,ll,ll>>;
 using ordered_set = tree<ll,null_type,less<ll>,rb_tree_tag,
 tree_order_statistics_node_update>; 
-using ordered_multiset = tree<pair<ll,ll>,null_type,less<pair<ll,ll>>,rb_tree_tag,
-tree_order_statistics_node_update>;
+using ordered_multiset = tree<ll,null_type,less_equal<ll>,rb_tree_tag,
+tree_order_statistics_node_update>; 
+
 
 #define pb push_back
 #define pf push_front
@@ -24,7 +25,7 @@ tree_order_statistics_node_update>;
 
 void solve(){
 
-        
+    
 }
 
 
