@@ -7,11 +7,8 @@ using ld = long double;
 using vll = vector<ll>;
 using vpl = vector<pair<ll,ll>>;
 using vtl = vector<tuple<ll,ll,ll>>;
-using ordered_set = tree<ll,null_type,less<ll>,rb_tree_tag,
-tree_order_statistics_node_update>; 
-using ordered_multiset = tree<ll,null_type,less_equal<ll>,rb_tree_tag,
-tree_order_statistics_node_update>; 
-
+template<class T> using ordered_set =tree<T, null_type, less<T>, rb_tree_tag,tree_order_statistics_node_update>;
+template<class T> using ordered_multiset =tree<T, null_type, less_equal<T>, rb_tree_tag,tree_order_statistics_node_update>;
 
 #define pb push_back
 #define pf push_front
