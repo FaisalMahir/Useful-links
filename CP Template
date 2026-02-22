@@ -8,7 +8,6 @@ using vll = vector<ll>;
 using vpl = vector<pair<ll,ll>>;
 using vtl = vector<tuple<ll,ll,ll>>;
 template<class T> using ordered_set =tree<T, null_type, less<T>, rb_tree_tag,tree_order_statistics_node_update>;
-template<class T> using ordered_multiset =tree<T, null_type, less_equal<T>, rb_tree_tag,tree_order_statistics_node_update>;
 
 #define pb push_back
 #define pf push_front
@@ -23,6 +22,7 @@ template<class T> using ordered_multiset =tree<T, null_type, less_equal<T>, rb_t
 void solve(){
 
     
+
 }
 
 
@@ -30,11 +30,11 @@ int main(){
     ios::sync_with_stdio(0);
     cin.tie(0);
 
-    ll t; 
-    cin >> t;
-    while(t--){
-       solve();
-    }
+    // ll t; 
+    // cin >> t;
+    // while(t--){
+        solve();
+    // }
 
     return 0;
 }
