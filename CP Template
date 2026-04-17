@@ -13,6 +13,13 @@ ll ModularInverse(ll a, ll m) {
     else return m-(m/a)*ModularInverse(m%a,m)%m;
 }
 
+void permutation(vll v){
+    do{
+        for(auto i:v) cout << i << " ";
+        cout << '\n';
+    } while(next_permutation(v.begin(), v.end()));
+}
+
 
 void solve(){
 
