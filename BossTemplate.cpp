@@ -7,6 +7,9 @@ using vll = vector<ll>;
 template<class T> using ordered_set =tree<T, null_type, less<T>, rb_tree_tag,tree_order_statistics_node_update>;
 #define pb push_back
 
+priority_queue<ll> maxheap;
+priority_queue<ll, vll, greater<ll>> minHeap;
+
 
 ll ModularInverse(ll a, ll m) {
     if(a<=1) return a;
