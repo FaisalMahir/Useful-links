@@ -3,6 +3,7 @@
 using namespace __gnu_pbds;
 using namespace std;
 using ll = long long;
+using bigll = __int128;
 using vll = vector<ll>;
 template<class T> using ordered_set =tree<T, null_type, less<T>, rb_tree_tag,tree_order_statistics_node_update>;
 #define pb push_back
