@@ -33,32 +33,36 @@ void mergesort(vll &v, ll left, ll right){
 
 
 // Segment Tree Implementation
-ll MAXN; vll seg;
+ll MAXN;
+typedef struct {
+    ll val;
+} node;
+vector<node> seg;
 ll combine(ll a, ll b){
     return a+b;
 }
 void build(ll a[], ll v, ll l, ll r) {
-    if(l==r) seg[v] = a[l];
+    if(l==r) seg[v].val = a[l];
     else{
         ll mid = (l+r)/2;
         build(a, v*2, l, mid);
         build(a, v*2+1, mid+1, r);
-        seg[v] = combine(seg[v*2], seg[v*2+1]);
+        seg[v].val = combine(seg[v*2].val, seg[v*2+1].val);
     }
 }
 ll sum(ll v, ll l, ll r, ll L, ll R) {
     if(L>R) return 0;
-    if(L==l && R==r) return seg[v];
+    if(L==l && R==r) return seg[v].val;
     ll mid = (l+r)/2;
     return combine(sum(v*2, l, mid, L, min(R,mid)), sum(v*2+1, mid+1, r, max(L,mid+1), R));
 }
 void update(ll v, ll l, ll r, ll pos, ll new_val) {
-    if(l==r) seg[v] = new_val;
+    if(l==r) seg[v].val = new_val;
     else{
         ll mid = (l+r)/2;
         if(pos <= mid) update(v*2, l, mid, pos, new_val);
         else update(v*2+1, mid+1, r, pos, new_val);
-        seg[v] = combine(seg[v*2], seg[v*2+1]);
+        seg[v].val = combine(seg[v*2].val, seg[v*2+1].val);
     }
 }
 
@@ -114,7 +118,7 @@ int main(){
 
     ll n;
     MAXN = 1000000;
-    seg.assign(4*MAXN,0);
+    seg.assign(4*MAXN,{0});
     vll v(n);
 
 
