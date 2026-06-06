@@ -38,8 +38,8 @@ typedef struct {
     ll val;
 } node;
 vector<node> seg;
-ll combine(ll a, ll b){
-    return a+b;
+node combine(node a, node b){
+    return {a.val+b.val};
 }
 void build(ll a[], ll v, ll l, ll r) {
     if(l==r) seg[v].val = a[l];
@@ -47,12 +47,12 @@ void build(ll a[], ll v, ll l, ll r) {
         ll mid = (l+r)/2;
         build(a, v*2, l, mid);
         build(a, v*2+1, mid+1, r);
-        seg[v].val = combine(seg[v*2].val, seg[v*2+1].val);
+        seg[v] = combine(seg[v*2], seg[v*2+1]);
     }
 }
-ll sum(ll v, ll l, ll r, ll L, ll R) {
-    if(L>R) return 0;
-    if(L==l && R==r) return seg[v].val;
+node sum(ll v, ll l, ll r, ll L, ll R) {
+    if(L>R) return {0};
+    if(L==l && R==r) return seg[v];
     ll mid = (l+r)/2;
     return combine(sum(v*2, l, mid, L, min(R,mid)), sum(v*2+1, mid+1, r, max(L,mid+1), R));
 }
@@ -62,7 +62,7 @@ void update(ll v, ll l, ll r, ll pos, ll new_val) {
         ll mid = (l+r)/2;
         if(pos <= mid) update(v*2, l, mid, pos, new_val);
         else update(v*2+1, mid+1, r, pos, new_val);
-        seg[v].val = combine(seg[v*2].val, seg[v*2+1].val);
+        seg[v] = combine(seg[v*2], seg[v*2+1]);
     }
 }
 
