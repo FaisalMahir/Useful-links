@@ -132,6 +132,15 @@ int main(){
     }
 
 
+    // Coordinate Compression
+    vll v;
+    sort(v.begin(), v.end());
+    v.erase(unique(v.begin(), v.end()), v.end());
+    auto compress = [&](ll val) -> ll {
+        return lower_bound(v.begin(), v.end(), val) - v.begin() + 1;
+    };
+
+
     // Totient function using sieve
     vll phi(1000001);
     for(ll i = 0; i <= 1000000; i++) phi[i] = i;
