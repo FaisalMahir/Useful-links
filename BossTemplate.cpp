@@ -106,6 +106,23 @@ ll log2floor(ll i) {
 }
 
 
+typedef struct{
+    ll x; ll y; ll z;
+} vec;
+
+vec cross(vec A, vec B){
+    return vec{
+        A.y * B.z - A.z * B.y,
+        A.z * B.x - A.x * B.z,
+        A.x * B.y - A.y * B.x
+    };
+}
+
+ll dot(vec A, vec B){
+    return A.x*B.x + A.y*B.y + A.z*B.z;
+}
+
+
 void solve(){
 
     
