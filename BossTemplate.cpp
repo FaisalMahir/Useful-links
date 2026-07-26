@@ -106,20 +106,39 @@ ll log2floor(ll i) {
 }
 
 
+// For Geometry 
 typedef struct{
     ll x; ll y; ll z;
-} vec;
+} pt;
 
-vec cross(vec A, vec B){
-    return vec{
-        A.y * B.z - A.z * B.y,
-        A.z * B.x - A.x * B.z,
-        A.x * B.y - A.y * B.x
-    };
-}
+pt cross(pt A, pt B){return pt{A.y * B.z - A.z * B.y, A.z * B.x - A.x * B.z, A.x * B.y - A.y * B.x};}
+ll dot(pt A, pt B){return A.x*B.x + A.y*B.y + A.z*B.z;}
+pt sub(pt A, pt B){return pt{A.x-B.x, A.y-B.y, A.z-B.z};}
+bool ptcmp(const pt &a, const pt &b){return (a.x < b.x) || (a.x == b.x && a.y < b.y);}
+ll orientation(pt O, pt A, pt B){return cross(sub(A,O), sub(B,O)).z;}
 
-ll dot(vec A, vec B){
-    return A.x*B.x + A.y*B.y + A.z*B.z;
+
+// Convex Hull
+// '<' makes it ccw, '>' makes it cw, adding '=' gets rid of the collinear
+vector<pt> convexHull(vector<pt> pts){
+    ll n = pts.size(), k = 0;
+    if(n < 3) return pts;
+
+    sort(pts.begin(), pts.end(), ptcmp);
+    vector<pt> hull(2*n);
+
+    for(ll i = 0; i < n; i++){
+        while(k >= 2 && orientation(hull[k-2], hull[k-1], pts[i]) <= 0) k--;
+        hull[k++] = pts[i];
+    }
+
+    for(ll i = n-2, lower = k+1; i >= 0; i--){
+        while(k >= lower && orientation(hull[k-2], hull[k-1], pts[i]) <= 0) k--;
+        hull[k++] = pts[i];
+    }
+
+    hull.resize(k-1); 
+    return hull;
 }
 
 
